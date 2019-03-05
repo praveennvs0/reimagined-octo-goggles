@@ -7,6 +7,9 @@ public class SMSCheck {
         String s="SMS messages are really short" ;
         int K= 12;
         int x = solution(s,K) ;
+        if(x==-1)
+            System.out.println("Cannot break into SMS " );
+        else
         System.out.println("no. of SMS is : " + x);
        
         
@@ -14,7 +17,7 @@ public class SMSCheck {
     
     
     public static int solution(String s, int K) {
-        //split by space to get the no. of words . needed as we cannot cut words in the middle
+        //split by space to get the no. of words needed as we cannot cut words in the middle
         String[] wordArray = s.split(" ");  
         
         
@@ -77,6 +80,7 @@ public class SMSCheck {
         }
         
      // returns no. of words chosen in our SMS. We can also use i-startingPosition+1 to find the no. of words but it is simpler to use java split function to count the no. of words
+        System.out.println("SMS is : " + sms);
         return sms.split(" ").length ; 
        
     }

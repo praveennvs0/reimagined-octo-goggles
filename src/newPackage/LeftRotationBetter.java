@@ -1,11 +1,11 @@
-package CreditBank;
+package newPackage;
 
-public class LeftRotation {
+public class LeftRotationBetter {
 
     public static void main(String args[]) {
-        int[] ar={1,2,3} ;
-        int d= 1 ;
-        
+        int[] ar={0,1,2,3,4} ;
+        int d= 3 ;
+        d = d % ar.length ;
         
         rotateArray(ar,d) ;
        
@@ -14,20 +14,25 @@ public class LeftRotation {
     }
 
     private static int[] rotateArray(int[] ar, int d) {
+        
         int size = ar.length ;
-        int temp ;
-        for(int k=1; k <=d ; k++) {
-            System.out.println("Performing rotation : " + k);
-            temp = ar[0] ;
-        for(int i=0 ; i+1 < ar.length ; i++) {
-            ar[i] = ar[i+1] ;
-        }
-        ar[size-1] = temp ;
-        printArray(ar) ;
-        
+        int b[] = new int[size] ;
+
+        int k=0;
+        for(int i=d; i<size; i++,k++) {
+            b[k] = ar[i] ;
+            
         }
         
-        return ar;
+        for(int i=0;i<d;i++) {
+            b[k] = ar[i] ;
+            k++ ;
+        }
+        
+        printArray(b) ;
+        
+        
+        return b;
     }
 
     private static void printArray(int[] ar) {
