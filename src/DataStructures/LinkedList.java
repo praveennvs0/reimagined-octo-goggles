@@ -17,13 +17,15 @@ public class LinkedList {
         
     
     
-    public void print(ListNode n){
+    public static void print(ListNode n){
         ListNode temp = n ;
+        System.out.println("elements in the list are : ") ;
         while(temp != null) {
             System.out.print(temp.getKey()+" : ");
             temp = temp.getNext() ;
             
         }
+        System.out.println();
         
         
     }
@@ -131,4 +133,24 @@ public class LinkedList {
         
             return node ;
     }
+    
+    
+    public static void traverse(ListNode node) {
+    	 ListNode prev = null; 
+         ListNode current = node; 
+         ListNode next = null;
+    	
+    	while(current != null) {
+    	
+    		
+    		
+    		prev = current ;
+    		current = current.next ;
+    		
+    	
+    	}
+    }
+
+
+
 }

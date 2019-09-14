@@ -22,7 +22,6 @@ public class SMSCheck {
         
         
         
-        //word cannot be split. If word is longer than K, we cannot do anything
         if(anyWordLongerThanSMSLength(wordArray,K)) {
             return -1 ;
         }
@@ -34,7 +33,6 @@ public class SMSCheck {
             
             int num_words = evalNoOfWords(i,wordArray,K) ;
             count++ ;
-         // push i by this many no. of words
             i = i + num_words  ; 
             totalNoOfSMS = totalNoOfSMS + 1 ;
             

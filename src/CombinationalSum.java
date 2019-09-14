@@ -4,8 +4,8 @@ import java.util.Arrays;
 public class CombinationalSum {
     public static void main(String args[]) {
         
-        int []nums = {2,3,6,7} ;
-        int target =7 ;
+        int []nums = {1,2,3} ;
+        int target =5 ;
          
         combinationSum(nums,target) ;
     }
@@ -31,8 +31,10 @@ public static void combinationSum(int[] candidates, int target, int j, ArrayList
        return;
    }
  
-   for(int i=j; i<candidates.length; i++){
-       if(target < candidates[i]) 
+
+   for(int i=0; i<candidates.length; i++){
+	   int cand =  candidates[i] ;
+       if(target < cand) 
             return;
  
        curr.add(candidates[i]);
@@ -44,7 +46,7 @@ public static void combinationSum(int[] candidates, int target, int j, ArrayList
 
 private static void print(ArrayList<Integer> temp) {
     for(int i=0 ; i < temp.size() ; i++) {
-        System.out.println(temp.get(i)+":");
+        System.out.print(temp.get(i)+":");
     }
     System.out.println("");
     

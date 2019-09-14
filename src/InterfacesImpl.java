@@ -15,6 +15,8 @@ class InterfacesImpl implements InterfaceA,InterfaceB {
 
     public static void main(String[] args) {
         InterfacesImpl obj = new InterfacesImpl();
+        obj.m2B();
+        obj.m2();
         obj.m();
         
 //        
@@ -25,10 +27,12 @@ class InterfacesImpl implements InterfaceA,InterfaceB {
      
     }
 
-    @Override
-    public void m() {
-        // TODO Auto-generated method stub
-        InterfaceA.super.m();
-    }
+@Override
+public void m() {
+	// TODO Auto-generated method stub
+	InterfaceA.super.m();
+	
+}
+
 
 }

@@ -27,7 +27,6 @@ public class SubsetsOfSetJava {
             // add element
             resultList.add(nums[i]);
             // Explore
-            System.out.println("result set is : " + resultList);
             subsetsHelper(list, resultList, nums, i + 1);
             // remove
             resultList.remove(resultList.size() - 1);
