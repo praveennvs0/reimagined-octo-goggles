@@ -10,13 +10,13 @@ public class LevelOrderTraversal {
 
     
     
-    public static void levelOrderTraversal(Node root) {
-        Queue<Node> q = new Queue<Node> () ;
+    public static void levelOrderTraversal(TreeNode root) {
+        Queue<TreeNode> q = new Queue<TreeNode> () ;
         q.enqueue(root);
         
         while(!q.isEmpty()){
-            Node poppedElement = q.dequeue() ;
-            System.out.print(poppedElement.key + ":") ;
+            TreeNode poppedElement = q.dequeue() ;
+            System.out.print(poppedElement.val + ":") ;
             
             if(poppedElement.left != null)
             q.enqueue(poppedElement.left);
@@ -30,30 +30,30 @@ public class LevelOrderTraversal {
     
     
 
-    public static void levelOrderTraversalLeftAndRight(Node root) {
-        Queue<Node> q = new Queue<Node> () ;
+    public static void levelOrderTraversalLeftAndRight(TreeNode root) {
+        Queue<TreeNode> q = new Queue<TreeNode> () ;
         q.enqueue(root);
         
         Map<Integer,Integer > heightMap = new LinkedHashMap<Integer,Integer> () ;
-        heightMap.put(root.key,0) ;
+        heightMap.put(root.val,0) ;
         
         
         while(!q.isEmpty()){
-            Node poppedElement = q.dequeue() ;
-            System.out.print(poppedElement.key + ":") ;
+            TreeNode poppedElement = q.dequeue() ;
+            System.out.print(poppedElement.val + ":") ;
             int left,right ;
-            int parentKey = poppedElement.key ;
+            int parentKey = poppedElement.val ;
             int parentLevel = heightMap.get(parentKey) ;
             
             if(poppedElement.left != null){
             q.enqueue(poppedElement.left);
-            left = poppedElement.left.key ;
+            left = poppedElement.left.val ;
             heightMap.put(left, parentLevel + 1 ) ;
             }
             
             if(poppedElement.right != null){
             q.enqueue(poppedElement.right);
-            right = poppedElement.right.key ;
+            right = poppedElement.right.val ;
             heightMap.put(right,parentLevel+1);
             }
         }

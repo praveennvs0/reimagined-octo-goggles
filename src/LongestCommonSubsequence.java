@@ -6,7 +6,7 @@ public class LongestCommonSubsequence {
     
     public static void main(String args[]) {
         String s1 = "beafd" ;
-        String s2 = "pbcahdi" ;
+        String s2 = "abrrff tdx" ;
         
         Set<String> subSeqList = new HashSet<String> () ;
         String longest = LCS(s1,s2,0,0,"",subSeqList) ;

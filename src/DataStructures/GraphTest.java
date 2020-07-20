@@ -15,12 +15,111 @@ public class GraphTest {
         Graph g = initializeGraph() ;
    
         
-        findAllPaths(g) ;
+        findAllPathsDFS(g);
     
     
             }
+    
+    private static void findAllPathsDFS(Graph g) {
+    	
+    	 List<ArrayList<Integer>> paths = new ArrayList<ArrayList<Integer>>() ;
+         
+         List<ArrayList<Integer>> finalPaths = new ArrayList<ArrayList<Integer>>() ;
+         Vertex start = g.getVertices().get(0) ;
+         Vertex goal = g.getVertices().get(2) ;
+         
+         List<int[]> edgesVisited = new ArrayList<>();
+         List<Integer> path = new ArrayList<>();
+         path.add(start.getKey());
+         dfsVisit(g,start,edgesVisited,path,goal);
+    	
+    }
+    
+    
+    private static void dfsVisit(Graph g, Vertex current, List<int[]> edgesVisited, List<Integer> path,Vertex goal) {
+    	if(current.getKey() == goal.getKey()) {
+    		printPath(path);
+    		path.remove(path.size()-1);
+//    		int[] edge = new int[2];
+//			edge[0] = current.getKey();
+//			edge[1] = v.getKey();
+//			edgesVisited.add(edge);
+    		
+    		return;
+    		
+    	}
+    		
+    	for(Vertex v : current.adjacentVertices) {
+    		if(!isVisited(v,current,edgesVisited)) {
+    			path.add(v.getKey());
+    			int[] edge = new int[2];
+    			edge[0] = current.getKey();
+    			edge[1] = v.getKey();
+    			edgesVisited.add(edge);
+    			dfsVisit(g,v,edgesVisited,path,goal);
+    		}
+    		
+    	}
+    	path.remove(path.size()-1);
+    	
+	}
+    
+    
+    private static boolean isVisited(Vertex v,Vertex u,List<int[]> edgesVisited) {
+    	for(int[] edge : edgesVisited) {
+    		if(edge[0]  == u.getKey() && edge[1] == v.getKey())
+    			return true;
+    		
+    	}
+    	return false;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    private static void findAllPaths(Graph g) {
+   
+
+	private static void findAllPaths(Graph g) {
         List<ArrayList<Integer>> paths = new ArrayList<ArrayList<Integer>>() ;
         
         List<ArrayList<Integer>> finalPaths = new ArrayList<ArrayList<Integer>>() ;
@@ -135,7 +234,7 @@ public class GraphTest {
             
     }
 
-    private static void printPath(ArrayList<Integer> n) {
+    private static void printPath(List<Integer> n) {
         System.out.println("Path  : " );
         n.forEach(v->System.out.print(v+" : "));
         
@@ -165,28 +264,29 @@ public class GraphTest {
         Vertex v5 = new Vertex(5) ;
         
         List<Vertex> adjacentVerticesV0 = new ArrayList<Vertex>(
-                Arrays.asList(v1,v3,v5));
+                Arrays.asList(v1,v3));
         v0.setAdjacentVertices(adjacentVerticesV0);
         
         List<Vertex> adjacentVerticesV1 = new ArrayList<Vertex>(
-                Arrays.asList(v2));
+                Arrays.asList(v2,v5));
         v1.setAdjacentVertices(adjacentVerticesV1);
         
         
         List<Vertex> adjacentVerticesV2 = new ArrayList<Vertex>(
                 Arrays.asList(v3));
-        v2.setAdjacentVertices(adjacentVerticesV2);
+      //  v2.setAdjacentVertices(adjacentVerticesV2);
+        v2.setAdjacentVertices(new ArrayList<>());
         
         List<Vertex> adjacentVerticesV3 = new ArrayList<Vertex>(
-                Arrays.asList(v4));
+                Arrays.asList(v2,v4));
         v3.setAdjacentVertices(adjacentVerticesV3);
         
         List<Vertex> adjacentVerticesV4 = new ArrayList<Vertex>(
-                Arrays.asList(v2,v0));
+                Arrays.asList(v5));
         v4.setAdjacentVertices(adjacentVerticesV4);
         
         List<Vertex> adjacentVerticesV5 = new ArrayList<Vertex>(
-                Arrays.asList(v2,v3,v1));
+                Arrays.asList(v2));
         v5.setAdjacentVertices(adjacentVerticesV5);
         
         

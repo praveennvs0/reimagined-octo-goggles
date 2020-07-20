@@ -6,8 +6,8 @@ import java.util.Map;
 
 public class BinarySearchTree {
     
-    Node root ;
-    Node prev ;
+    public TreeNode root ;
+    TreeNode prev ;
     
     public BinarySearchTree() {
         root = null ;
@@ -15,26 +15,26 @@ public class BinarySearchTree {
 
     public void insertNode(int key) {
         if(root==null){
-            Node newNode = new Node(key) ;
+            TreeNode newNode = new TreeNode(key) ;
             root = newNode ;
             return ;
             
         }
         
-        Node node = root ;
+        TreeNode node = root ;
         while(true) {
             
          
             
-            if(node.left == null && key < node.key) {
-                Node newNode = new Node(key) ;
+            if(node.left == null && key < node.val) {
+                TreeNode newNode = new TreeNode(key) ;
                 node.left = newNode ;
                 newNode.parent = node ;
                 return ;
             }
             
-            if(node.right == null && key > node.key) {
-                Node newNode = new Node(key) ;
+            if(node.right == null && key > node.val) {
+                TreeNode newNode = new TreeNode(key) ;
                 node.right = newNode ;
                 newNode.parent = node ;
                 return ;
@@ -56,20 +56,47 @@ public class BinarySearchTree {
         }
     }
   
-    void inorder()  { 
+   public void inorder()  { 
+	   System.out.println("Inorder is : ");
         inorderRec(root); 
      } 
    
+   
+   public void preorder()  { 
+	   System.out.println("Preorder is : ");
+        preorderRec(root); 
+     } 
+   
+   // A utility function to do preorder traversal of BST 
+   public  void preorderRec(TreeNode root) { 
+         if (root != null) { 
+             System.out.print(root.val); 
+             System.out.print(",");
+             preorderRec(root.left); 
+             preorderRec(root.right); 
+         } 
+     } 
+   
+   public void preorderAsList(TreeNode root,List<Integer> preOrderList) {
+       if (root != null) { 
+           System.out.print(root.val);
+           System.out.print(",");
+           preOrderList.add(root.val);
+           preorderAsList(root.left,preOrderList); 
+           preorderAsList(root.right,preOrderList); 
+       } 
+       
+   }
      // A utility function to do inorder traversal of BST 
-     void inorderRec(Node root) { 
+   public  void inorderRec(TreeNode root) { 
          if (root != null) { 
              inorderRec(root.left); 
-             System.out.println(root.key); 
+             System.out.println(root.val); 
              inorderRec(root.right); 
          } 
      } 
      
-     void inorderRec(Node root,List<Node> nodeList) {
+     void inorderRec(TreeNode root,List<TreeNode> nodeList) {
          if (root != null) { 
              inorderRec(root.left,nodeList); 
              nodeList.add(root) ;
@@ -83,7 +110,7 @@ public class BinarySearchTree {
          return height ;
      }
 
-    private int evaluateHeight(Node node) {
+    private int evaluateHeight(TreeNode node) {
         
         int leftHeight = 0,rightHeight = 0 ;
         
@@ -99,10 +126,10 @@ public class BinarySearchTree {
     }
 
     
-    public void findNodesAtGivenHeight(Node n,int currentHeight, int target) {
+    public void findNodesAtGivenHeight(TreeNode n,int currentHeight, int target) {
         
         if(currentHeight == target) {
-            System.out.println(n.key);
+            System.out.println(n.val);
         }
         
         if(currentHeight > target) {
@@ -135,7 +162,7 @@ public class BinarySearchTree {
             return b;
     }
     
-    public void printPaths(Node n, List<Integer> path, List<List<Integer>> listOfPaths) {
+    public static void printPaths(TreeNode n, List<Integer> path, List<List<Integer>> listOfPaths) {
         
         if(n== null){
             return ;
@@ -157,18 +184,18 @@ public class BinarySearchTree {
         printPaths(n.left,path,listOfPaths) ;
         
         if(n.left != null) {
-        path.remove(new Integer(n.left.key)) ;
+        path.remove(new Integer(n.left.val)) ;
         }
         
         printPaths(n.right,path,listOfPaths) ;
         
         if(n.right !=null) {
-        path.remove(new Integer(n.right.key)) ;
+        path.remove(new Integer(n.right.val)) ;
         }
         
     }
     
-    private List<Integer> copyList(List<Integer> path) {
+    private static List<Integer> copyList(List<Integer> path) {
         List<Integer> copiedList = new ArrayList<Integer>();
         for(Integer i : path) {
             copiedList.add(i) ;
@@ -176,7 +203,7 @@ public class BinarySearchTree {
         return copiedList ;
     }
     
-    public void printVerticalLine(Node node, int line_no, int hd)  
+    public void printVerticalLine(TreeNode node, int line_no, int hd)  
     { 
         // Base case 
         if (node == null)  
@@ -184,7 +211,7 @@ public class BinarySearchTree {
    
         // If this node is on the given line number 
         if (hd == line_no)  
-            System.out.print(node.key + " "); 
+            System.out.print(node.val + " "); 
         
    
         // Recur for left and right subtrees 
@@ -192,7 +219,7 @@ public class BinarySearchTree {
         printVerticalLine(node.right, line_no, hd + 1); 
     } 
     
-    public void printNodesAtDistanceFromRoot(Node n,int currDistance,int targetDistance) {
+    public void printNodesAtDistanceFromRoot(TreeNode n,int currDistance,int targetDistance) {
         
         if(n == null) {
             return ;
@@ -211,7 +238,7 @@ public class BinarySearchTree {
         
     }
     
-    public void findPathToANode(Node n,List<Node> path,int target,List<Node> result) {
+    public static void findPathToANode(TreeNode n,List<TreeNode> path,int target,List<TreeNode> result) {
         
 
         if(n == null) {
@@ -237,17 +264,17 @@ public class BinarySearchTree {
         path.remove(n.right) ;
     }
     
-    public void printNodes(List<Node> path) {
+    public static void printNodes(List<TreeNode> path) {
         System.out.println("Path is : ");
-        path.forEach(n-> System.out.println(n.key));
+        path.forEach(n-> System.out.println(n.val));
         
     }
 
-    public void verticalOrder(List<Node> nodes,Map<Integer,Integer> nodePathMap) {
+    public void verticalOrder(List<TreeNode> nodes,Map<Integer,Integer> nodePathMap) {
        
-        for(Node n : nodes) {
+        for(TreeNode n : nodes) {
             int verticalDistance = findVerticalDistance(n) ;
-            nodePathMap.put(n.key, new Integer(verticalDistance)) ;
+            nodePathMap.put(n.val, new Integer(verticalDistance)) ;
         
         }
         
@@ -257,17 +284,17 @@ public class BinarySearchTree {
     
    
     
-    public int findVerticalDistance(Node n) {
-        List<Node> path = new ArrayList<Node>();
-        List<Node> result = new ArrayList<Node>() ;
+    public int findVerticalDistance(TreeNode n) {
+        List<TreeNode> path = new ArrayList<TreeNode>();
+        List<TreeNode> result = new ArrayList<TreeNode>() ;
         
-        findPathToANode(root, path , n.key,result);
+        findPathToANode(root, path , n.val,result);
         
         int verticalDistance = findVerticalDistanceFromRootThroughPath(result) ;
         return verticalDistance ;
     }
 
-    private int findVerticalDistanceFromRootThroughPath(List<Node> result) {
+    private int findVerticalDistanceFromRootThroughPath(List<TreeNode> result) {
         int verticalDistance = 0;
         for(int i=0 ; i < result.size() - 1 ; i++) {
             if(result.get(i).getRight() == result.get(i+1)) {
@@ -280,9 +307,9 @@ public class BinarySearchTree {
         return verticalDistance;
     }
     
-    public void printNodesAtHorizontalDistance(Node n,int currentDistance, int targetDistance) {
+    public void printNodesAtHorizontalDistance(TreeNode n,int currentDistance, int targetDistance) {
         if(currentDistance == targetDistance) {
-            System.out.println(n.key);
+            System.out.println(n.val);
         }
         
         if(n.left != null) 
@@ -300,7 +327,7 @@ public class BinarySearchTree {
         return false ;
     } 
   
-   public  boolean isBSTUtil( Node root, Node prev) 
+   public  boolean isBSTUtil( TreeNode root, TreeNode prev) 
     { 
         // traverse the tree in inorder fashion and  
         // keep track of prev node 
@@ -310,7 +337,7 @@ public class BinarySearchTree {
               return false; 
        
             // Allows only distinct valued nodes  
-            if (prev != null && root.key <= prev.key) 
+            if (prev != null && root.val <= prev.val) 
               return false; 
        
             prev = root; 
