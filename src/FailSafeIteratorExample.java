@@ -25,7 +25,7 @@ public class FailSafeIteratorExample
          
         while (it.hasNext())
         {
-            String key = (String) it.next();
+            String key = it.next();
              
             System.out.println(key+" : "+map.get(key));
              

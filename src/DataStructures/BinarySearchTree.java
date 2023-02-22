@@ -6,14 +6,14 @@ import java.util.Map;
 
 public class BinarySearchTree {
     
-    public TreeNode root ;
+    public static TreeNode root ;
     TreeNode prev ;
     
     public BinarySearchTree() {
         root = null ;
     }
 
-    public void insertNode(int key) {
+    public static void insertNode(int key) {
         if(root==null){
             TreeNode newNode = new TreeNode(key) ;
             root = newNode ;
@@ -56,19 +56,19 @@ public class BinarySearchTree {
         }
     }
   
-   public void inorder()  { 
+   public static void inorder()  { 
 	   System.out.println("Inorder is : ");
         inorderRec(root); 
      } 
    
    
-   public void preorder()  { 
+   public static void preorder()  { 
 	   System.out.println("Preorder is : ");
         preorderRec(root); 
      } 
    
    // A utility function to do preorder traversal of BST 
-   public  void preorderRec(TreeNode root) { 
+   public static  void preorderRec(TreeNode root) { 
          if (root != null) { 
              System.out.print(root.val); 
              System.out.print(",");
@@ -88,7 +88,7 @@ public class BinarySearchTree {
        
    }
      // A utility function to do inorder traversal of BST 
-   public  void inorderRec(TreeNode root) { 
+   public static void inorderRec(TreeNode root) { 
          if (root != null) { 
              inorderRec(root.left); 
              System.out.println(root.val); 

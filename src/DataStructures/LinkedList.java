@@ -1,5 +1,7 @@
 package DataStructures;
 
+import java.util.List;
+
 public class LinkedList {
 
     ListNode head ;
@@ -16,6 +18,10 @@ public class LinkedList {
         }
         
     
+    public void append(int x) {
+    	ListNode newNode = new ListNode(x);
+    	
+    }
     
     public static void print(ListNode n){
         ListNode temp = n ;
@@ -134,6 +140,13 @@ public class LinkedList {
             return node ;
     }
     
+    public static void displayList(List<Integer> list){
+    	System.out.println();
+        for(Integer i: list) {
+          System.out.print(i);
+          System.out.print(":");
+      }
+    }
     
     public static void traverse(ListNode node) {
     	 ListNode prev = null; 

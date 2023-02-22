@@ -4,7 +4,7 @@ public class ListNode {
 
     
     
-    public int key ;
+    public int val ;
     public ListNode next ; 
     boolean visited ;
     
@@ -15,12 +15,12 @@ public class ListNode {
 
 
     public int getKey() {
-        return key;
+        return val;
     }
 
 
     public void setKey(int key) {
-        this.key = key;
+        this.val = key;
     }
 
 

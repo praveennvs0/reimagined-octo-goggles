@@ -28,7 +28,7 @@ public class FailFastIteratorExample
          
         while (it.hasNext())
         {
-            Integer integer = (Integer) it.next();
+            Integer integer = it.next();
              
             list.add(8457);      //This will throw ConcurrentModificationException
         }

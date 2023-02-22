@@ -5,7 +5,7 @@ public class MinJumps {
 
 	
 	public static void main(String args[]) {
-		int[] nums= {1,1,1,1,1,1,1,1,1,1};
+		int[] nums= {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9} ;
 		int jumps = jump(nums) ;
 		System.out.println("Minimum no. of jumps is :" + jumps);
 	}

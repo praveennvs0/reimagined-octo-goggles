@@ -37,7 +37,7 @@ public class LinkLearn {
             return false; 
   
         /* Check values at current left and right */
-        boolean isp1 = (right.key == (left).key); 
+        boolean isp1 = (right.val == (left).val); 
   
         /* Move left to next node */
         left = left.next; 

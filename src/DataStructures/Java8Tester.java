@@ -1,10 +1,15 @@
 package DataStructures;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Java8Tester {
 
    public static void main(String args[]) {
       Java8Tester tester = new Java8Tester();
         
+      AtomicInteger t ;
+      Integer tt;
+      
       //with type declaration
       MathOperation addition = (int a, int b) -> { return a + b;};
         
@@ -36,6 +41,7 @@ public class Java8Tester {
     
    interface MathOperation {
       int operation(int a, int b);
+      
    }
     
    interface GreetingService {

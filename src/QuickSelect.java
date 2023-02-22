@@ -2,8 +2,8 @@
 public class QuickSelect {
 
 	public static void main(String args[]) {
-		int[] a= {2,8,1,3,7,5,4,9,6};
-		int k= 4 ;
+		int[] a= {3,2,1,5,6,4};
+		int k= 2;
 		System.out.println("Given array :" );
 		display(a) ;
 		int x = quickSelect(a,k) ;
@@ -48,7 +48,7 @@ public class QuickSelect {
 		int pivot = a[r] ;
 		int partitionIndex=0;
 		for(int j=0;j<=r-1;j++) {
-			if(a[j] <= pivot) {
+			if(a[j] >= pivot) {
 				
 				int temp = a[partitionIndex];
 				a[partitionIndex]=a[j];

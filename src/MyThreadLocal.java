@@ -11,6 +11,6 @@ public class MyThreadLocal {
     }
 
     public static Context get() {
-        return (Context) userThreadLocal.get();
+        return userThreadLocal.get();
     }
 }

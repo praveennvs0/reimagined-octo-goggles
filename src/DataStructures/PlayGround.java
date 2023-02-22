@@ -50,7 +50,7 @@ public class PlayGround {
 		if(size % 2 == 1 && curr !=null) 
 			temp2 = curr.next;
 		while(temp1 != null && temp2 !=null ) {
-			if(temp1.key != temp2.key )
+			if(temp1.val != temp2.val )
 				return false;
 			temp1=temp1.next;
 			temp2=temp2.next;

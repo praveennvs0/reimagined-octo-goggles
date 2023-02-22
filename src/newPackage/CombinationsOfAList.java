@@ -6,7 +6,7 @@ import java.util.List;
 public class CombinationsOfAList {
 	
 	public static void main(String[] args) {
-		int nums[] = {1,2,3,4};
+		int nums[] = {1,2,3};
 		List<Integer> combination = new ArrayList<>();
 		printCombinations(nums,0,combination);
 		
@@ -24,6 +24,7 @@ public class CombinationsOfAList {
 		
 	}
 
+	
 
 	private static void print(List<Integer> combination) {
 		System.out.print("Combination is : ") ;
